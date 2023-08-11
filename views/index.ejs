@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>SAP Stand</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://sdk.openui5.org/resources/sap/ui/core/themes/base/SAP-icons.css" >
+
+        <script src="https://kit.fontawesome.com/e03ea1e3e9.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <div id="standard">
+                <div id="logoAndDropdown">
+                    <!-- logo -->
+                    <img id="logo" src="img/SAP_R_grad_scrn (1).svg" alt="SAP"/>
+                    <!-- dropdown menu -->
+                    <div>
+                        <button class="btn btn-secondary dropdown-toggle" id="dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> 
+                            Students@VT
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li>Students@VT</li>
+                            <li><a href="./studiengaenge">Studiengänge</a></li>
+                            <li><a href="./procurement">Procurement</a></li>
+                            <li class="my_apps" onclick="">All My Apps</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <!-- searchbar -->
+                    <div class="search">
+                        <input id="searchbar" onkeyup="searchApp()" type="text" placeholder="Search In: &quot;VT@SAP&quot;"></input>
+                        <button onclick="searchApp()" class="searchButton"></button>
+                    </div>
+                </div>
+                <script>
+                    function searchApp() {
+                        let input = document.getElementById('searchbar').value;
+                        input = input.toLowerCase();
+
+                        let x = document.getElementsByClassName('app');
+
+                        for (i = 0; i < x.length; i++) { 
+                            if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                                x[i].style.display="none";
+                            } else {
+                                x[i].style.display="flex";                 
+                            }
+                        }
+
+                        if (input.length == 0) {
+                            back();
+                        }
+                    }
+                </script>
+                <div class="profile-picture">
+                    <!-- rocket -->
+                <img id="profileimg" src="/img/282556_Rocket_R_green.png" alt="Rocket" />
+                </div>
+            </div>
+            <div id="navigation">
+                <nav id="app-menu">
+                    <ul>
+                        <li id="selected">
+                            <a href="#" id="selectedItem">Students@VT</a>
+                        </li>
+                        <li>
+                            <a href="#">Productivity Tools</a>
+                        </li>
+                        <li>
+                            <a href="#">Human Ressources</a>
+                        </li>
+                        <li>
+                            <a href="#">Sales & Presales</a>
+                        </li>
+                        <li>
+                            <a href="#">Customer Success</a>
+                        </li>
+                        <li>
+                            <a href="#">Finance & Administration</a>
+                        </li>
+                        <li>
+                            <a href="#">Product & Innovation</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="students" id="aktiv">
+                <h1 class="ueberschrift">Students@SAP</h1>
+                <a class="app" href="./studiengaenge">
+                    <div class="label">Studiengänge</div>
+                    <div class="sub-label">Unser Studienangebot</div>
+                    <div class="studyLeave"></div>
+                </a>
+            </section>
+            <section class="productivity" id="aktiv">
+                <h1 class="ueberschrift">Productivity Tools</h1>
+                <a href="./procurement">
+                    <div class="app" >
+                        <div class="label">Procurement</div>
+                        <div class="sub-label">Lege einen Einkauf an</div>
+                        <div class="cart"></div>
+                    </div>
+                </a>
+                <div class="app" id="inaktiv">
+                    <div class="label">VT Dashboard</div>
+                    <div class="sub-label-inaktiv">Verwalte dein Studium</div>
+                    <div class="studyLeave"></div>
+                </div>
+                <div class="app" id="inaktiv">
+                    <div class="label">Transportation</div>
+                    <div class="sub-label-inaktiv">Lege einen Transportauftrag an</div>
+                    <div class="truck"></div>
+                </div>
+                <div class="app" id="inaktiv">
+                    <div class="label">Corporate Search</div>
+                    <div class="sub-label-inaktiv">Entdecke SAP</div>
+                    <div class="coporateSearch"></div>
+                </div>
+                <div class="app" id="inaktiv">
+                    <div class="label">SAP One</div>
+                    <div class="sub-label-inaktiv">Inhalt & Services</div>
+                    <div class="sapLogo"></div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

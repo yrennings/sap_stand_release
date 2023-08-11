@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>SAP Stand</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/styles/procurement.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://sdk.openui5.org/resources/sap/ui/core/themes/base/SAP-icons.css" >
+
+        <script src="./procurement.js"></script>
+        <script src="https://kit.fontawesome.com/e03ea1e3e9.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <script>
+            function back() {
+                window.location.href = "./";
+            }
+
+            function onStudy() {
+                window.location.href = "./studiengaenge.html";
+            }
+
+            function expandItem(index) {
+                var details = document.getElementById("rightPanel");
+                details.style.display = "flex";
+
+                if (document.getElementById("detail-content-" + index).classList.contains("expand")) {
+                    closeDetails();
+                } else {
+                    var detailContents = document.getElementsByClassName("detail-content");
+
+                    for (var i = 0; i < detailContents.length; i++) {
+                        detailContents[i].classList.remove("expand");
+                    }
+
+                    var detailContent = document.getElementById("detail-content-" + index);
+                    detailContent.classList.add("expand");
+                }
+            }
+
+            function closeDetails() {
+                var details = document.getElementById("rightPanel");
+                details.style.display = "none";
+
+                var detailContents = document.getElementsByClassName("detail-content");
+
+                for (var i = 0; i < detailContents.length; i++) {
+                    detailContents[i].classList.remove("expand");
+                }
+            }
+
+            function searchPosition() {
+                let input = document.getElementById('searchbar').value;
+                input = input.toLowerCase();
+
+                let x = document.getElementsByClassName('position');
+
+                for (i = 0; i < x.length; i++) {
+                    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                        x[i].style.display="none";
+                    } else {
+                        x[i].style.display="list-item";                
+                    }
+                }
+            }
+
+            function showToast() {
+                var toastContainer = document.getElementById("toastContainer");
+                var toast = document.createElement("div");
+                toast.classList.add("toast");
+                toast.textContent = "Vielen Dank! Deine Bestellung war erfolgreich. Du erhälst das gewünschte Produkt in Kürze.";
+                toastContainer.appendChild(toast);
+                
+
+                console.log("Test")
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://localhost:3000/engine', true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = xhr.responseText;
+                    console.log('Serverantwort:', response);
+                }
+                };
+                xhr.send();
+
+                setTimeout(function () {
+                    toast.classList.add("show");
+                    setTimeout(function () {
+                    toast.classList.remove("show");
+                    toastContainer.removeChild(toast);
+                    }, 3000);
+                }, 100);
+
+                closeDetails()
+            }
+        </script>
+
+        <header>
+            <div id="logoAndDropdown">
+                <button class="back" onclick="back()"></button>
+                <!-- logo -->
+                <img id="logo" src="img/SAP_R_grad_scrn (1).svg" alt="SAP" onclick="back()"/>
+                <!-- dropdown menu -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" id="dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Procurement
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>Procurement</li>
+                        <li onclick="back()">Students@VT</li>
+                        <li onclick="onStudy()">Studiengänge</li>
+                        <li class="my_apps" onclick="">All My Apps</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <!-- searchbar -->
+                <div class="search">
+                    <input id="searchbar" onkeyup="searchApp()" type="text" placeholder="Search In: VT@SAP"></input>
+                    <button class="searchButton"></button>
+                </div>
+            </div>
+            <div class="profile-picture">
+                <!-- rocket -->
+                <img id="profileimg" src="img/282556_Rocket_R_green.png" alt="Rocket" />
+            </div>
+        </header>
+
+        <main>
+            <div class="leftPanel">
+                <div class="headerProcurement">
+                    <h1 class="description">Einkaufspositionen (7)</h1>
+                    <button onclick="" class="positionButton">Neue Position anlegen</button>
+                </div>
+                <!----<div class="controlPenals">
+                    <div class="searchList">
+                        <input id="searchbar" onkeyup="searchPosition()" type="text" placeholder="Search">
+                            <button onclick="searchPosition()" class="searchButton"></button>
+                            <div class="history"></div>
+                        </input>
+                    </div>
+                    <div class = "icons">
+                        <div class="arrows"></div>
+                        <div class="filter"></div>
+                        <div class="sort"></div>
+                    </div>
+                </div> -->
+                <div class="margins">
+                    <div class="container">
+                        <div class="list">
+                            <ul id="list">
+                                <li class="list-item" onclick="expandItem(1)">
+                                    Gummibärchen
+                                    <div class="expandIcon"></div>
+                                </li>
+                                <li class="list-item" onclick="expandItem(2)">
+                                    SAP Energyballs
+                                    <div class="expandIcon"></div>
+                                </li>
+                                <li class="list-item" onclick="expandItem(3)">
+                                    SAP Nussmix
+                                    <div class="expandIcon"></div>
+                                </li>
+                                <li class="list-item" onclick="expandItem(4)">
+                                    SAP Aufkleber
+                                    <div class="expandIcon"></div>
+                                </li>
+                                <li class="list-item" onclick="expandItem(5)">
+                                    SAP Kugelschreiber
+                                    <div class="expandIcon"></div>
+                                </li>
+                                <li class="list-item" onclick="expandItem(6)">
+                                    SAP Bleistift
+                                    <div class="expandIcon"></div>
+                                </li>
+                                <li class="list-item" onclick="expandItem(7)">
+                                    SAP "50 YEARS" Stickerkarte
+                                    <div class="expandIcon"></div>
+                                </li>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightPanel" id="rightPanel">
+                <div id="border"></div>
+                <div class="detail-content" id="detail-content-1">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">Gummibärchen</h3>
+                            <h1 id="subInfo">15 Gramm</h1>
+                        </div>
+                        <img id="productimg" src="https://sapmerchandise.com/media/amasty/webp/catalog/product/cache/99fa35ae7e124318d8733ad685f3f5fa/5/s/5sa00469_sap_gummibaerchen_01_jpg.webp" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Produktbeschreibung</h1>
+                        <p>Fruchtgummis mit 25% Fruchtanteil, verpackt in einer kompostierbaren Folie. Hergestellt aus dem erneuerbarem Rohstoff Zellulose.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Bestellung aufgeben</h1>
+                        <div class="orderButton">
+                            <button id="toastButton" onclick="showToast()">Jetzt Bestellung aufgeben</button>
+                        </div>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR-Code-Students.png" alt="QR-Code" />
+                            <p>Du möchtest studieren und gleichzeitig arbeiten? Bei uns kannst Du das Beste aus beiden Welten vereinen.
+                            <br>Entdecke jetzt unser vielfältiges Angebot auf unserer Website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-2">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">SAP Energyballs</h3>
+                            <h1 id="subInfo">Dreamy Chocolate</h1>
+                        </div>
+                        <img id="productimg" src="https://sapmerchandise.com/media/amasty/webp/catalog/product/cache/e6747b56b9d8782f4edafdac4cc20237/5/s/5sa00500_sap_energyballs_01_1__jpg.webp" alt="Energyballs" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Produktbeschreibung</h1>
+                        <p>Eins unserer drei regionalen Produkte – die SAP EngeryBalls. Miss Luh's EngeryBalls werden mit liebe in Handarbeit gefertigt. 
+                            Die Produktion befindet sich in der Nähe von Heidelberg. Mit ihren gesunden Snacks verbessern Laura und Chiara von Miss Luh's deine Genusswelt auf eine gesunde Art und verschönern dein Leben! Die Produkte liefern dir die richtige Energie und beleben deinen Geist, ohne künstliche Zusatzstoffe. Der ideale Snack fürs Nachmittagstief oder einfach mal für zwischendurch. Die EnergyBalls sind vegan, glutenfrei und bestehen ausschließlich aus natürlichen Inhaltsstoffen. Du weißt nicht wo dir der Kopf steht? Mandeln sind nicht nur Brainfood, sondern enthalten auch Vitamin E, Kalzium, Magnesium und Eisen. Ashwaganda hilft dir bei Schlafstörungen und innerer Unruhe, 
+                            Maca enthält wichtige Antioxidantien, Aminosäuren und gesunde Fettsäuren.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Bestellung aufgeben</h1>
+                        <div class="orderButton">
+                            <button id="toastButton" onclick="showToast()">Jetzt Bestellung aufgeben</button>
+                        </div>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR-Code-Students.png" alt="QR-Code" />
+                            <p>Du möchtest studieren und gleichzeitig arbeiten? Bei uns kannst Du das Beste aus beiden Welten vereinen.
+                            <br>Entdecke jetzt unser vielfältiges Angebot auf unserer Website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-3">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">SAP Nussmix</h3>
+                            <h1 id="subInfo">Im Glas</h1>
+                        </div>
+                        <img id="productimg" src="https://sapmerchandise.com/media/amasty/webp/catalog/product/cache/e6747b56b9d8782f4edafdac4cc20237/5/s/5sa00501_sap_nussmix_im_glas_01_jpg.webp" alt="Nussmix" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Produktbeschreibung</h1>
+                        <p>Gesalzener Nussmix im Glas. Passend als Snack für Zwischendurch oder für einen gemütlichen Abend. Regional hergestellt.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Bestellung aufgeben</h1>
+                        <div class="orderButton">
+                            <button id="toastButton" onclick="showToast()">Jetzt Bestellung aufgeben</button>
+                        </div>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR-Code-Students.png" alt="QR-Code" />
+                            <p>Du möchtest studieren und gleichzeitig arbeiten? Bei uns kannst Du das Beste aus beiden Welten vereinen.
+                            <br>Entdecke jetzt unser vielfältiges Angebot auf unserer Website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-4">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">SAP Aufkleber</h3>
+                            <h1 id="subInfo">DIN A4-Blatt</h1>
+                        </div>
+                        <img id="productimg" src="https://sapmerchandise.com/media/amasty/webp/catalog/product/cache/99fa35ae7e124318d8733ad685f3f5fa/5/s/5sa00463_sap_aufkleber_nutzen_01_1_jpg.webp" alt="Aufkleber" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Produktbeschreibung</h1>
+                        <p>DIN A4 Bogen mit 44 formgestanzten SAP-Aufklebern in verschiedenen Größen. 4 Stück mit ca, 80mm Breite, 12 Stück mit ca. 40mm Breite + 28 Stück mit ca. 20mm Breite. Folie Vinyl weiß matt. Folienkleber: festhaftend</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Bestellung aufgeben</h1>
+                        <div class="orderButton">
+                            <button id="toastButton" onclick="showToast()">Jetzt Bestellung aufgeben</button>
+                        </div>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR-Code-Students.png" alt="QR-Code" />
+                            <p>Du möchtest studieren und gleichzeitig arbeiten? Bei uns kannst Du das Beste aus beiden Welten vereinen.
+                            <br>Entdecke jetzt unser vielfältiges Angebot auf unserer Website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-5">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">SAP Kugelschreiber</h3>
+                            <h1 id="subInfo">50 Years Edition</h1>
+                        </div>
+                        <img id="productimg" src="https://sapmerchandise.com/media/amasty/webp/catalog/product/cache/e6747b56b9d8782f4edafdac4cc20237/5/s/5sa00xxx_50jahre_kugelschreiber_01_01_jpg.webp" alt="Kugelschreiber" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Produktbeschreibung</h1>
+                        <p>Nachfüllbarer Drehkugelschreiber aus Biokunststoff (PLA) mit hochwertiger Floating Ball® Grossraummine und "50 YEARS" Logodruck. Achtung: wenn Deine Bestellung vorbestellbare Artikel und Lagerware enthält erfolgt der Versand erst, wenn auch die vorbestellten Artikel verfügbar sind. Tipp: zwei Bestellungen platzieren.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Bestellung aufgeben</h1>
+                        <div class="orderButton">
+                            <button id="toastButton" onclick="showToast()">Jetzt Bestellung aufgeben</button>
+                        </div>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR-Code-Students.png" alt="QR-Code" />
+                            <p>Du möchtest studieren und gleichzeitig arbeiten? Bei uns kannst Du das Beste aus beiden Welten vereinen.
+                            <br>Entdecke jetzt unser vielfältiges Angebot auf unserer Website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-6">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">SAP Bleistift</h3>
+                            <h1 id="subInfo">Der wächst</h1>
+                        </div>
+                        <img id="productimg" src="https://sapmerchandise.com/media/amasty/webp/catalog/product/cache/e6747b56b9d8782f4edafdac4cc20237/5/s/5sa00471_sap_sprout_bleistift_04_jpg.webp" alt="Bleistift" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Produktbeschreibung</h1>
+                        <p>Ein außergewöhnlicher Bleistift bei dem man den Bleistiftstummel nicht wegwerfen muss.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Bestellung aufgeben</h1>
+                        <div class="orderButton">
+                            <button id="toastButton" onclick="showToast()">Jetzt Bestellung aufgeben</button>
+                        </div>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR-Code-Students.png" alt="QR-Code" />
+                            <p>Du möchtest studieren und gleichzeitig arbeiten? Bei uns kannst Du das Beste aus beiden Welten vereinen.
+                            <br>Entdecke jetzt unser vielfältiges Angebot auf unserer Website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-7">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">SAP "50 YEARS" Stickerkarte</h3>
+                            <h1 id="subInfo">Limited Edition</h1>
+                        </div>
+                        <img id="productimg" src="https://sapmerchandise.com/media/amasty/webp/catalog/product/cache/e6747b56b9d8782f4edafdac4cc20237/5/s/5sa00xxx_50jahre_sticker_card_01_jpg.webp" alt="Sticker" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Produktbeschreibung</h1>
+                        <p>Die SAP "50 YEARS" Stickerkkarte bestehend aus 2 x "50" Jahre Aufklebern in weiß und schwarz und 2 x SAP "50" Jahre Pins (Magnetverschluss und Butterfly)</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Bestellung aufgeben</h1>
+                        <div class="orderButton">
+                            <button id="toastButton" onclick="showToast()">Jetzt Bestellung aufgeben</button>
+                        </div>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR-Code-Students.png" alt="QR-Code" />
+                            <p>Du möchtest studieren und gleichzeitig arbeiten? Bei uns kannst Du das Beste aus beiden Welten vereinen.
+                            <br>Entdecke jetzt unser vielfältiges Angebot auf unserer Website.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="toastContainer"></div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,416 @@
+html, main {
+    background-color: #E0E3E4;
+    font-family: "72","72full",Arial,Helvetica,sans-serif;
+}
+
+/* styles for header */
+header {
+    background-color: #354A5F;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+    margin-bottom: -2.75rem;
+}
+
+/* back, logo and dropdown */
+.back::before {
+    font-family: SAP-icons;
+    font-size: 110%;
+    content: "\e1eb";
+}
+
+.back {
+    background-color: transparent;
+    border: none;
+    color: #B6E0FC;
+    padding-left: 1.75rem;
+    height: 3rem;
+}
+
+#logoAndDropdown {
+    display: flex;
+    justify-content: flex-start;
+
+    margin-top: -0.5rem;
+}
+
+#logo {
+    padding-top: 0.5rem;
+    max-height:45%;
+    vertical-align: middle;
+    padding-right: 0.75rem;
+    padding-left: 1.75rem;
+}
+
+#dropdown {
+    background-color: transparent; /* Hintergrundfarbe auf transparent setzen */
+    border: none; /* Umrandung entfernen */
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 0.4rem;
+}
+
+.dropdown-menu {
+    border: 1px solid #8C8F91;
+    padding: 0!important;
+    border-radius: 4px!important;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 10rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f7f7f7;
+}
+
+.my_apps {
+    text-align: center;
+    color: #C2DBF3;
+    padding-right: 0.75rem!important;
+}
+
+/* searchbar */
+.search input {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    color: white; /* Eingabeschriftfarbe auf Weiß setzen */
+    border: 0.5px solid #B6E0FC; /* Umrandungsfarbe setzen */
+    caret-color: #B6E0FC; /* Farbe des Cursor-Symbols */
+    border-radius: 3%;
+    width: 40vw;
+    padding: 0.5rem;
+  }
+  
+.search input::placeholder {
+    color: #B6E0FC; /* Farbe des Placeholder-Texts */
+    font-style: italic; /* Placeholder-Text kursiv setzen */
+}
+
+.searchButton::before {
+    font-family: SAP-icons;
+    font-size: 110%;
+    content: "\e00d";
+}
+
+.search button {
+    background-color: transparent;
+    border: none;
+    color: #B6E0FC;
+    margin-left: 0.25rem;
+}
+
+/* rocket */
+.profile-picture {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white; /* Farbe der Umrandung anpassen */
+    vertical-align: middle;
+    margin-right: 1.75rem;
+}
+
+#profileimg {
+    height: 100%;
+}
+
+main {
+    display: flex;
+}
+
+/* Icons above accordion */
+.history::before {
+    font-family: SAP-icons;
+    font-size: 100%;
+    content: "\e02d";
+}
+
+.arrows::before {
+    font-family: SAP-icons;
+    font-size: 150%;
+    content: "\e095";
+
+    margin: 0.25rem;
+}
+
+.sort::before {
+    font-family: SAP-icons;
+    font-size: 150%;
+    content: "\e1fc";
+
+    margin: 0.25rem;
+}
+
+.filter::before {
+    font-family: SAP-icons;
+    font-size: 150%;
+    content: "\e076";
+
+    margin: 0.25rem;
+}
+
+/* Header Procurement */
+.headerProcurement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E0E3E4;
+    box-shadow: -2px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+    margin-left: 2em;
+    padding-top: 1.0rem;
+    margin-bottom: 1.0em;
+    font-size: 1.125rem;
+    font-weight: normal;
+}
+
+.positionButton {
+    border-color: transparent;
+    background-color: #75A8DB ;
+    border-radius: 4.5px;
+
+    margin: 1.0rem;
+    margin-right: 2em;
+    margin-bottom: 1.0em;
+    color: white;
+
+    padding: 0.25rem;
+}
+
+/* Search Bar Procurement */
+.controlPenals {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+
+    margin-right: 2em;
+}
+
+.searchList{
+    display: flex;
+    flex-direction: row;
+}
+
+/*FIORI Accordion */
+.expandIcon::before {
+    font-family: SAP-icons;
+    font-size: 100%;
+    font-weight: lighter;
+    content: "\e066";
+}
+
+.expandIcon {
+    padding-right: 0.75rem;
+}
+
+.margins {
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
+}
+
+.container {
+    padding: 0!important;
+    margin-top: 1.25rem;
+    max-width: inherit!important;
+}
+
+.leftPanel {
+    flex: 1;
+    flex-grow: 2;
+}
+
+.list {
+    width: auto;
+    background-color: white;
+    border: 1px solid #8C8F91;
+    border-radius: 1px;
+}
+
+.list-item:hover {
+    background-color: #C2DBF3;
+}
+
+.list-item {
+    cursor: pointer;
+    list-style: none;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: large;
+}
+
+#list {
+    margin: 0;
+    padding: 0;
+}
+
+.list-item:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+.rightPanel {
+    flex: 1;
+    flex-grow: 3;
+    padding: 1px;
+    padding-left: 0px!important;
+    overflow-y: auto;
+    display: none;
+}
+
+#border {
+    height: inherit;
+    width: 2rem;
+    border-radius: 75px;
+    background-color: #9A9D9E;
+}
+
+.detail-content {
+    display: none;
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
+}
+
+.expand {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    justify-content: flex-end!important;
+}
+
+.close-button {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    border: none;
+    width: fit-content;
+}
+
+.close-button::before {
+    font-family: SAP-icons;
+    font-size: 100%;
+    content: "\e03e";  
+}
+
+/* Design of Detail-Body */
+.details {
+    background-color: #E0E3E4;
+    width: 500%;
+}
+
+.detail-content {
+    background-color: #E0E3E4;
+    width: 500%;
+}
+
+.detail-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.75rem;
+}
+
+#productName {
+    font-size: x-large;
+}
+
+#subInfo {
+    font-size: larger;
+    color:#8C8F91;
+}
+
+#sectionName {
+    font-size: larger;
+    color:#8C8F91;
+}
+
+#informationContainer, #purchase, #qrcode {
+    background-color: white;
+    overflow: visible;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+#informationContainer, #purchase {
+    border-bottom: 1px solid #ccc;
+}
+
+#qrcode {
+    margin-bottom: 1.75rem;
+}
+
+p {
+    margin-bottom: 0!important;
+}
+
+#productimg {
+    max-height: 100px;
+}
+
+.advertisement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.75rem;
+}
+
+#qr {
+    max-height: 200px;
+    margin-right: 2rem;
+}
+
+/* Desing of Success Toast */
+#toastButton {
+    border-color: transparent;
+    background-color: #0A6ED1 ;
+    border-radius: 4.5px;
+    margin-top: 1rem;
+    justify-content: center;
+    color: white;
+    padding: 0.5rem;
+    
+}
+
+.orderButton {
+    display: flex;
+    justify-content: center;
+}
+
+#toastContainer {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.toast {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.toast.show {
+    opacity: 1;
+}

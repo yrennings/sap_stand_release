@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>SAP Stand</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/styles/studiengaenge.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://sdk.openui5.org/resources/sap/ui/core/themes/base/SAP-icons.css" >
+
+        <script src="./studiengaenge.js"></script>
+        <script src="https://kit.fontawesome.com/e03ea1e3e9.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <div id="logoAndDropdown">
+                <button class="back"><a href="./"></a></button>
+                <!-- logo -->
+                <img id="logo" src="img/SAP_R_grad_scrn (1).svg" alt="SAP" onclick="back()"/>
+                <!-- dropdown menu -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" id="dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Studiengänge
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a href="./"></a>Students@VT</li>
+                        <li><a href="./procurement"></a>Procurement</li>
+                        <li class="my_apps" onclick="">All My Apps</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <!-- searchbar -->
+                <div class="search">
+                    <input id="searchbar" onkeyup="searchApp()" type="text" placeholder="Search In: VT@SAP"></input>
+                    <button class="searchButton"></button>
+                </div>
+            </div>
+            <div class="profile-picture">
+                <!-- rocket -->
+                <img id="profileimg" src="img/282556_Rocket_R_green.png" alt="Rocket" />
+            </div>
+        </header>
+
+        <main>
+            <div class="leftPanel">
+                <h1 class="headline">Duales Studium bei der SAP</h1>
+                <div class="list">
+                    <ul id="list">
+                        <li class="list-item" onclick="expandItem(1)">
+                            Wirtschaftsinformatik
+                            <div class="expandIcon"></div>
+                        </li>
+                        <li class="list-item" onclick="expandItem(2)">
+                            Informatik
+                            <div class="expandIcon"></div>
+                        </li>
+                        <li class="list-item" onclick="expandItem(3)">
+                            IT-Sicherheit
+                            <div class="expandIcon"></div>
+                        </li>
+                        <li class="list-item" onclick="expandItem(4)">
+                            Data Science und Künstliche Intelligenz
+                            <div class="expandIcon"></div>
+                        </li>
+                        <li class="list-item" onclick="expandItem(5)">
+                            Internationale Wirtschaftsinformatik
+                            <div class="expandIcon"></div>
+                        </li>
+                        <li class="list-item" onclick="expandItem(6)">
+                            Digitale Medien
+                            <div class="expandIcon"></div>
+                        </li>
+                        <li class="list-item" onclick="expandItem(7)">
+                            BWL - Digital Business Management
+                            <div class="expandIcon"></div>
+                        </li>
+                    </ul>
+                </div>
+                <h1 class="headline">Ausbildung bei der SAP</h1>
+                <div class="list">
+                    <ul id="list">
+                        <li class="list-item" onclick="expandItem(8)">
+                            Fachinformatiker*in für Anwendungsentwicklung
+                            <div class="expandIcon"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rightPanel" id="rightPanel">
+                <div id="border"></div>
+                <div class="detail-content" id="detail-content-1">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">Wirtschaftsinformatik (B. Sc.)</h3>
+                            <h1 id="subInfo">Bachelor of Science</h1>
+                        </div>
+                        <img id="productimg" src="img/WI.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Dein Studium</h1>
+                        <p>Erhalte Einblicke in Themen wie Digitale Transformation, Internet
+                            of Things, Machine sowie Deep Learning und lernen die Informatik
+                            und Grundlagen der Betriebswirtschaftslehre kennen.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-2">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">Informatik (B. Sc.)</h3>
+                            <h1 id="subInfo">Bachelor of Science</h1>
+                        </div>
+                        <img id="productimg" src="img/AI.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Dein Studium</h1>
+                        <p>Erhalte spannende Einblicke in Themen wie Netzwerktechnik,
+                            Datenbanken sowie Betriebssysteme und lerne Programmiersprachen,
+                            Internet of Things sowie Machine und Deep Learning
+                            kennen.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-3">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">IT-Sicherheit (B. Sc.)</h3>
+                            <h1 id="subInfo">Bachelor of Science</h1>
+                        </div>
+                        <img id="productimg" src="img/KITS.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Dein Studium</h1>
+                        <p>Erhalte spannende Einblicke in Themen wie IT-Sicherheit, -Recht,
+                            -Compliance sowie Kryptologie und Netzwerksicherheit.
+                            Des Weiteren lernst Du Programmierung und den Bereich der
+                            theoretischen Informatik kennen.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-4">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">Data Science und KI (B. Sc.)</h3>
+                            <h1 id="subInfo">Bachelor of Science</h1>
+                        </div>
+                        <img id="productimg" src="img/DS.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Dein Studium</h1>
+                        <p>Erhalte spannende Einblicke in Themen wie Informatik, Datenanalyse
+                            und Künstliche Intelligenz, Projektmanagement sowie
+                            Machine Learning und Big Data. Darüber hinaus lernst Du diverse
+                            Aspekte der Betriebswirtschaftslehre kennen.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-5">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">Internationale Wirtschaftsinformatik (B. Sc.)</h3>
+                            <h1 id="subInfo">Bachelor of Science</h1>
+                        </div>
+                        <img id="productimg" src="img/IBAIT.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Dein Studium</h1>
+                        <p>Erhalte spannende Einblicke in Themen wie Softwareentwicklung,
+                            IT-Security, Systemanalyse sowie Systementwurf und lerne die
+                            Grundlagen der IT und Betriebswirtschaftslehre kennen.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-6">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">Digitale Medien (B. A.)</h3>
+                            <h1 id="subInfo">Bachelor of Arts</h1>
+                        </div>
+                        <img id="productimg" src="img/DM.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Dein Studium</h1>
+                        <p>Erhalte spannende Einblicke in die Themen User Experience, User
+                            Research, Marketing, Interaction sowies Visual Design.
+                            Daneben lernst Du Grundlagen der Informatik sowie Betriebs- und
+                            Volkswirtschaftslehre kennen.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-7">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">BWL - Digital Business Management (B. A.)</h3>
+                            <h1 id="subInfo">Bachelor of Arts</h1>
+                        </div>
+                        <img id="productimg" src="img/BWL.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Dein Studium</h1>
+                        <p>Lerne die Betriebs- und Volkswirtschaftslehre kennen und erhalte
+                            spannende Einblicke in Themen wie Digitalisierung, Industrielles
+                            Management und Digitale Transformation.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content" id="detail-content-8">
+                    <div class="button">
+                        <button class="close-button" onclick="closeDetails()"></button>
+                    </div>
+                    <div class="detail-heading">
+                        <div class="bezeichnung">
+                            <h3 id="productName">Fachinformatik</h3>
+                            <h1 id="subInfo">IHK Ausbildung</h1>
+                        </div>
+                        <img id="productimg" src="img/FI.png" alt="Gummibärchen" />
+                    </div>
+                    <div id="informationContainer">
+                        <h1 id="sectionName">Deine Ausbildung</h1>
+                        <p>Erhalte spannende Einblicke in Themen wie Predictive Analytics,
+                            Internet of Things, Digitalisierung, Cloud, Virtual Reality sowie
+                            Machine und Deep Learning.</p>
+                    </div>
+                    <div id="purchase">
+                        <h1 id="sectionName">Das bieten wir Dir</h1>
+                        <ul>
+                            <li>
+                                Flexible Arbeitszeiten
+                            </li>
+                            <li>
+                                Umzugspauschale & Mobilitätszuschuss
+                            </li>
+                            <li>
+                                Sportmöglichkeiten auf dem SAP Gelände
+                            </li>
+                            <li>
+                                30 Tage Urlaub
+                            </li>
+                            <li>
+                                Laptop & Büromaterial
+                            </li>
+                            <li>
+                                Mittagessen & Getränke
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qrcode">
+                        <h1 id="sectionName">Interesse geweckt?</h1>
+                        <div class="advertisement">
+                            <img id="qr" src="img/QR.png" alt="QR-Code" />
+                            
+                            <p><center>
+                                Du möchtest zum Traumberuf durchstarten? Lass dich von unserer Website inspirieren und entdecke die spannende Welt der beruflichen Möglichkeiten bei SAP.
+                                <br><br>
+                                Bring everything you are – become everything you want!
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

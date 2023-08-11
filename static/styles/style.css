@@ -1,0 +1,277 @@
+html, main {
+    background-color: #E0E3E4;
+    font-family: "72","72full",Arial,Helvetica,sans-serif;
+}
+
+/* styles for header */
+header {
+    background-color: #354A5F;
+    padding-bottom: 0.001em;
+}
+
+/* 1. section of the header */
+#standard {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.0rem;
+    margin-bottom: -0.75rem;
+}
+
+/* logo and dropdown */
+#logoAndDropdown {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logo {
+    max-height:55%;
+    vertical-align: middle;
+    padding-right: 0.75rem;
+    padding-bottom: 0px;
+    padding-left: 1.75rem;
+ }
+
+#dropdown {
+    background-color: transparent; /* Hintergrundfarbe auf transparent setzen */
+    border: none; /* Umrandung entfernen */
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 0.4rem;
+}
+
+.dropdown-menu {
+    border: 1px solid #8C8F91;
+    padding: 0!important;
+    border-radius: 4px!important;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 10rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f7f7f7;
+}
+
+.my_apps {
+    text-align: center;
+    color: #C2DBF3;
+    padding-right: 0.75rem!important;
+}
+
+/* searchbar */
+.search input {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    color: white; /* Eingabeschriftfarbe auf Weiß setzen */
+    border: 0.5px solid #B6E0FC; /* Umrandungsfarbe setzen */
+    caret-color: #B6E0FC; /* Farbe des Cursor-Symbols */
+    border-radius: 3%;
+    width: 40vw;
+    padding: 0.5rem;
+  }
+  
+.search input::placeholder {
+    color: #B6E0FC; /* Farbe des Placeholder-Texts */
+    font-style: italic; /* Placeholder-Text kursiv setzen */
+}
+
+.searchButton::before { 
+    font-family: SAP-icons; 
+    font-size: 110%;
+    content: "\e00d"; 
+}
+  
+.search button {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    border: none;
+    color: #B6E0FC; /* Farbe der Lupe */
+    margin-left: 0.25rem;
+}
+
+/* rocket */
+.profile-picture {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white; /* Farbe der Umrandung anpassen */
+    vertical-align: middle;
+    margin-right: 1.75rem;
+}
+
+#profileimg {
+    height: 100%;
+}
+
+/* navigation */
+nav {
+    color: white;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 5;
+    margin: 0;
+
+    display: flex;
+    column-gap: 2em;
+}
+
+/* colours for links */
+a, a:visited {
+    color: white;
+    text-decoration: none!important;
+    border-bottom: 3px solid transparent;
+}
+
+a:hover{
+    color: #B6E0FC;
+    text-decoration: none;
+}
+
+#selected {
+    padding-bottom: 1rem;
+    border-bottom: 2.5px solid #B6E0FC;
+}
+
+#selectedItem {
+    color: #B6E0FC;
+}
+
+
+/* styles for main */
+main {
+    padding-bottom: 1.75rem;
+}
+
+/* headings */
+.ueberschrift {
+    margin-left: 2em;
+    padding-top: 1.5rem;
+    margin-bottom: -1.0em;
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-shadow: 0 0 0.125rem #fff;
+}
+  
+/* tiles */
+.app {
+    position: relative;
+
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    z-index: 10;
+    border-radius: 4px;
+
+    display: inline-block;
+    box-sizing: border-box;
+    width: 9em;
+    height: 9em;
+    margin-top: 1.75em;
+    margin-left: 1.75em;
+    margin-right: -1.56em;
+    
+    font-size: 110%;
+
+    cursor: pointer;
+}
+
+.app:hover {
+    border: 1px solid #89919a;
+    background-color: #f7f7f7;
+}
+
+.app a {
+    color: #606060 !important;
+    text-decoration: none !important;
+}
+
+.app .label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    
+    z-index: 4;
+}
+
+#aktiv {
+    color: #32363a;
+}
+
+.app .sub-label {
+    position: absolute;
+    top: 2.0rem;
+    left: 0.5rem;
+
+    font-size: small;
+    color: #6a6d70;
+}
+
+.sub-label-inaktiv {
+    position: absolute;
+    top: 2.0rem;
+    left: 0.5rem;
+
+    font-size: small;
+    color:rgb(204, 197, 197);
+}
+
+#inaktiv {
+    background-color: #F3F4F4;
+    color:rgb(204, 197, 197);
+}
+
+/* icons für tiles */
+.app .studyLeave::before { 
+    font-family: SAP-icons; 
+    font-size: 200%;
+    content: "\e0fc"; 
+
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.0rem;
+} 
+
+.app .cart::before { 
+    font-family: SAP-icons; 
+    font-size: 200%;
+    content: "\e043"; 
+
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.0rem;
+} 
+
+.app .truck::before{
+    font-family: SAP-icons; 
+    font-size: 200%;
+    content: "\e0b3"; 
+
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.0rem;
+}
+
+.app .coporateSearch::before{
+    font-family: SAP-icons; 
+    font-size: 200%;
+    content: "\e0db"; 
+
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.0rem;
+}
+
+.app .sapLogo::before{
+    font-family: SAP-icons; 
+    font-size: 200%;
+    content: "\e1bb"; 
+
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.0rem;
+}
