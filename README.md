@@ -1,5 +1,4 @@
 # SAP_Stand
-Biele Biele Biele
 Willkommen beim SAP-Ständ Showcase Projekt. Unser Projekt ist eine grüne Wiese um mit verschiedenen Technologien Messestände zu entwickeln und bauen um Schülerinnen und Schülern die SAP und unsere Produkte näher zu bringen. 
 Ein SAP-Ständtastisches Projekt!
 
