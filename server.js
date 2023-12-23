@@ -1,6 +1,8 @@
 const express = require("express");
 const Gpio = require("onoff").Gpio;
 
+const { exec } = require('child_process');
+
 const app = express();
 
 app.set('view engine', 'ejs')
@@ -72,6 +74,20 @@ app.get("/enginestp", (_req, res) => {
 
         stepperDir = 0;
         res.status(200).send("Motor dreht sich jetzt");
+});
+
+
+app.get("/pull", (_req, res) => {
+        var yourscript = exec('sh pull.sh',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
+
+        res.status(200).send("Pulling code");
 });
 
 app.listen(3000, () => {
