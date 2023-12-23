@@ -65,7 +65,6 @@ app.get("/enginefwd", (_req, res) => {
 });
 
 app.get("/enginebwd", (_req, res) => {
-
         stepperDir = -1;
         res.status(200).send("Motor dreht sich jetzt");
 });
