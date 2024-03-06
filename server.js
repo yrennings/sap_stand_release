@@ -33,7 +33,6 @@ const stepSequence = [
         [1,0,0,1],
 ];
 
-
 app.get("/", (_req, res) => {
         res.render("index");
 });
@@ -70,7 +69,6 @@ app.get("/enginebwd", (_req, res) => {
 });
 
 app.get("/enginestp", (_req, res) => {
-
         stepperDir = 0;
         res.status(200).send("Motor dreht sich jetzt");
 });

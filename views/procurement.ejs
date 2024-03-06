@@ -78,7 +78,7 @@
 
                 console.log("Test")
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'http://localhost:3000/engine', true);
+                xhr.open('GET', '192.168.4.1:3000/enginefwd', true);
                 xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var response = xhr.responseText;
