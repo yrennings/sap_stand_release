@@ -6,8 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="/styles/studiengaenge.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="https://sdk.openui5.org/resources/sap/ui/core/themes/base/SAP-icons.css" >
+        
+        <script src="/js/fontawesome.js" crossorigin="anonymous"></script>
+        <script src="/js/bootstrap.min.js"></script>
 
         <script>
 
@@ -50,15 +53,324 @@ function closeDetails() {
 
 
         </script>
-        <script src="https://kit.fontawesome.com/e03ea1e3e9.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <style>
+            html, main {
+    background-color: #E0E3E4;
+    font-family: "72","72full",Arial,Helvetica,sans-serif;
+}
+
+/* styles for header */
+header {
+    background-color: #354A5F;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+    margin-bottom: -2.75rem;
+}
+
+/* back, logo and dropdown */
+.back::before {
+    font-family: SAP-icons;
+    font-size: 110%;
+    content: "\e1eb";
+}
+
+.back {
+    background-color: transparent;
+    border: none;
+    color: #B6E0FC;
+    padding-left: 1.75rem;
+    height: 3rem;
+}
+
+#logoAndDropdown {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logo {
+    padding-top: 0.5rem;
+    max-height:45%;
+    vertical-align: middle;
+    padding-right: 0.75rem;
+    padding-left: 1.75rem;
+}
+
+#dropdown {
+    background-color: transparent; /* Hintergrundfarbe auf transparent setzen */
+    border: none; /* Umrandung entfernen */
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 0.4rem;
+}
+
+.dropdown-menu {
+    border: 1px solid #8C8F91;
+    padding: 0!important;
+    border-radius: 4px!important;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 10rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f7f7f7;
+}
+
+.my_apps {
+    text-align: center;
+    color: #C2DBF3;
+    padding-right: 0.75rem!important;
+}
+
+/* searchbar */
+.search input {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    color: white; /* Eingabeschriftfarbe auf Weiß setzen */
+    border: 0.5px solid #B6E0FC; /* Umrandungsfarbe setzen */
+    caret-color: #B6E0FC; /* Farbe des Cursor-Symbols */
+    border-radius: 3%;
+    width: 40vw;
+    padding: 0.5rem;
+  }
+  
+.search input::placeholder {
+    color: #B6E0FC; /* Farbe des Placeholder-Texts */
+    font-style: italic; /* Placeholder-Text kursiv setzen */
+}
+
+.searchButton::before {
+    font-family: SAP-icons;
+    font-size: 110%;
+    content: "\e00d";
+}
+
+.search button {
+    background-color: transparent;
+    border: none;
+    color: #B6E0FC;
+    margin-left: 0.25rem;
+}
+
+/* rocket */
+.profile-picture {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white; /* Farbe der Umrandung anpassen */
+    vertical-align: middle;
+    margin-right: 1.75rem;
+}
+
+#profileimg {
+    height: 100%;
+}
+
+/* styles for main */
+main {
+    display: flex;
+}
+
+.headline {
+    padding-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: x-large;
+}
+
+/*FIORI Accordion */
+.expandIcon::before {
+    font-family: SAP-icons;
+    font-size: 100%;
+    font-weight: lighter;
+    content: "\e066";
+}
+
+.expandIcon {
+    padding-right: 0.75rem;
+}
+
+.leftPanel {
+    flex: 1;
+    flex-grow: 2;
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
+    padding: 0!important;
+}
+
+.list {
+    width: auto;
+    background-color: white;
+    border: 1px solid #8C8F91;
+    border-radius: 1px;
+}
+
+.list-item:hover {
+    background-color: #C2DBF3;
+}
+
+.list-item {
+    cursor: pointer;
+    list-style: none;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: large;
+}
+
+#list {
+    margin: 0;
+    padding: 0;
+}
+
+.list-item:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+.rightPanel {
+    flex: 1;
+    flex-grow: 3;
+    padding: 1px;
+    padding-left: 0px!important;
+    overflow-y: auto;
+    display: none;
+}
+
+#border {
+    height: inherit;
+    width: 2rem;
+    border-radius: 75px;
+    background-color: #9A9D9E;
+}
+
+.detail-content {
+    display: none;
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
+}
+
+.expand {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    justify-content: flex-end!important;
+}
+
+.close-button {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    border: none;
+    width: fit-content;
+}
+
+.close-button::before {
+    font-family: SAP-icons;
+    font-size: 100%;
+    content: "\e03e";  
+}
+
+
+#purchase ul { 
+    list-style-type: none; 
+} 
+
+#purchase ul li::before { 
+    font-family: SAP-icons; 
+    font-size: 60%; 
+    content: "\e1bb"; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -1em; 
+    color: #0A6ED1;
+}
+
+/* Design of Detail-Body */
+.details {
+    background-color: #E0E3E4;
+    width: 500%;
+}
+
+.detail-content {
+    background-color: #E0E3E4;
+    width: 500%;
+}
+
+.detail-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.75rem;
+}
+
+#productName {
+    font-size: x-large;
+}
+
+#subInfo {
+    font-size: larger;
+    color:#8C8F91;
+}
+
+#sectionName {
+    font-size: larger;
+    color:#8C8F91;
+}
+
+#informationContainer, #purchase, #qrcode {
+    background-color: white;
+    overflow: visible;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+#informationContainer, #purchase {
+    border-bottom: 1px solid #ccc;
+}
+
+#qrcode {
+    margin-bottom: 1.75rem;
+}
+
+p {
+    margin-bottom: 0!important;
+}
+
+#productimg {
+    max-height: 100px;
+}
+
+.advertisement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.75rem;
+}
+
+#qr {
+    max-height: 200px;
+    margin-right: 2rem;
+}
+
+        </style>
     </head>
     <body>
-        <header>
+        <header style="margin-bottom: 0rem;">
             <div id="logoAndDropdown">
-                <button class="back"><a href="./"></a></button>
                 <!-- logo -->
-                <img id="logo" src="img/SAP_R_grad_scrn (1).svg" alt="SAP" onclick="back()"/>
+                <img id="logo" src="img/SAP_R_grad_scrn (1).svg" style="max-height: 70%;" alt="SAP" onclick="back()"/>
                 <!-- dropdown menu -->
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" id="dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,7 +387,6 @@ function closeDetails() {
                 <!-- searchbar -->
                 <div class="search">
                     <input id="searchbar" onkeyup="searchApp()" type="text" placeholder="Search In: VT@SAP"></input>
-                    <button class="searchButton"></button>
                 </div>
             </div>
             <div class="profile-picture">
@@ -91,31 +402,24 @@ function closeDetails() {
                     <ul id="list">
                         <li class="list-item" onclick="expandItem(1)">
                             Wirtschaftsinformatik
-                            <div class="expandIcon"></div>
                         </li>
                         <li class="list-item" onclick="expandItem(2)">
                             Informatik
-                            <div class="expandIcon"></div>
                         </li>
                         <li class="list-item" onclick="expandItem(3)">
                             IT-Sicherheit
-                            <div class="expandIcon"></div>
                         </li>
                         <li class="list-item" onclick="expandItem(4)">
                             Data Science und Künstliche Intelligenz
-                            <div class="expandIcon"></div>
                         </li>
                         <li class="list-item" onclick="expandItem(5)">
                             Internationale Wirtschaftsinformatik
-                            <div class="expandIcon"></div>
                         </li>
                         <li class="list-item" onclick="expandItem(6)">
                             Digitale Medien
-                            <div class="expandIcon"></div>
                         </li>
                         <li class="list-item" onclick="expandItem(7)">
                             BWL - Digital Business Management
-                            <div class="expandIcon"></div>
                         </li>
                     </ul>
                 </div>
@@ -124,7 +428,6 @@ function closeDetails() {
                     <ul id="list">
                         <li class="list-item" onclick="expandItem(8)">
                             Fachinformatiker*in für Anwendungsentwicklung
-                            <div class="expandIcon"></div>
                         </li>
                     </ul>
                 </div>
@@ -133,7 +436,7 @@ function closeDetails() {
                 <div id="border"></div>
                 <div class="detail-content" id="detail-content-1">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -186,7 +489,7 @@ function closeDetails() {
                 </div>
                 <div class="detail-content" id="detail-content-2">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -240,7 +543,7 @@ function closeDetails() {
                 </div>
                 <div class="detail-content" id="detail-content-3">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -294,7 +597,7 @@ function closeDetails() {
                 </div>
                 <div class="detail-content" id="detail-content-4">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -348,7 +651,7 @@ function closeDetails() {
                 </div>
                 <div class="detail-content" id="detail-content-5">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -401,7 +704,7 @@ function closeDetails() {
                 </div>
                 <div class="detail-content" id="detail-content-6">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -455,7 +758,7 @@ function closeDetails() {
                 </div>
                 <div class="detail-content" id="detail-content-7">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -507,7 +810,7 @@ function closeDetails() {
                 </div>
                 <div class="detail-content" id="detail-content-8">
                     <div class="button">
-                        <button class="close-button" onclick="closeDetails()"></button>
+                        <button onclick="closeDetails()">X</button>
                     </div>
                     <div class="detail-heading">
                         <div class="bezeichnung">
@@ -561,4 +864,316 @@ function closeDetails() {
             </div>
         </main>
     </body>
+    <style>
+        html, main {
+    background-color: #E0E3E4;
+    font-family: "72","72full",Arial,Helvetica,sans-serif;
+}
+
+/* styles for header */
+header {
+    background-color: #354A5F;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+    margin-bottom: -2.75rem;
+}
+
+/* back, logo and dropdown */
+.back::before {
+    font-family: SAP-icons;
+    font-size: 110%;
+    content: "\e1eb";
+}
+
+.back {
+    background-color: transparent;
+    border: none;
+    color: #B6E0FC;
+    padding-left: 1.75rem;
+    height: 3rem;
+}
+
+#logoAndDropdown {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logo {
+    padding-top: 0.5rem;
+    max-height:45%;
+    vertical-align: middle;
+    padding-right: 0.75rem;
+    padding-left: 1.75rem;
+}
+
+#dropdown {
+    background-color: transparent; /* Hintergrundfarbe auf transparent setzen */
+    border: none; /* Umrandung entfernen */
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 0.4rem;
+}
+
+.dropdown-menu {
+    border: 1px solid #8C8F91;
+    padding: 0!important;
+    border-radius: 4px!important;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 10rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f7f7f7;
+}
+
+.my_apps {
+    text-align: center;
+    color: #C2DBF3;
+    padding-right: 0.75rem!important;
+}
+
+/* searchbar */
+.search input {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    color: white; /* Eingabeschriftfarbe auf Weiß setzen */
+    border: 0.5px solid #B6E0FC; /* Umrandungsfarbe setzen */
+    caret-color: #B6E0FC; /* Farbe des Cursor-Symbols */
+    border-radius: 3%;
+    width: 40vw;
+    padding: 0.5rem;
+  }
+  
+.search input::placeholder {
+    color: #B6E0FC; /* Farbe des Placeholder-Texts */
+    font-style: italic; /* Placeholder-Text kursiv setzen */
+}
+
+.searchButton::before {
+    font-family: SAP-icons;
+    font-size: 110%;
+    content: "\e00d";
+}
+
+.search button {
+    background-color: transparent;
+    border: none;
+    color: #B6E0FC;
+    margin-left: 0.25rem;
+}
+
+/* rocket */
+.profile-picture {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white; /* Farbe der Umrandung anpassen */
+    vertical-align: middle;
+    margin-right: 1.75rem;
+}
+
+#profileimg {
+    height: 100%;
+}
+
+/* styles for main */
+main {
+    display: flex;
+}
+
+.headline {
+    padding-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: x-large;
+}
+
+/*FIORI Accordion */
+.expandIcon::before {
+    font-family: SAP-icons;
+    font-size: 100%;
+    font-weight: lighter;
+    content: "\e066";
+}
+
+.expandIcon {
+    padding-right: 0.75rem;
+}
+
+.leftPanel {
+    flex: 1;
+    flex-grow: 2;
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
+    padding: 0!important;
+}
+
+.list {
+    width: auto;
+    background-color: white;
+    border: 1px solid #8C8F91;
+    border-radius: 1px;
+}
+
+.list-item:hover {
+    background-color: #C2DBF3;
+}
+
+.list-item {
+    cursor: pointer;
+    list-style: none;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: large;
+}
+
+#list {
+    margin: 0;
+    padding: 0;
+}
+
+.list-item:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+.rightPanel {
+    flex: 1;
+    flex-grow: 3;
+    padding: 1px;
+    padding-left: 0px!important;
+    overflow-y: auto;
+    display: none;
+}
+
+#border {
+    height: inherit;
+    width: 2rem;
+    border-radius: 75px;
+    background-color: #9A9D9E;
+}
+
+.detail-content {
+    display: none;
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
+}
+
+.expand {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    justify-content: flex-end!important;
+}
+
+.close-button {
+    background-color: transparent; /* Hintergrundfarbe auf Transparenz setzen */
+    border: none;
+    width: fit-content;
+}
+
+.close-button::before {
+    font-family: SAP-icons;
+    font-size: 100%;
+    content: "\e03e";  
+}
+
+
+#purchase ul { 
+    list-style-type: none; 
+} 
+
+#purchase ul li::before { 
+    font-family: SAP-icons; 
+    font-size: 60%; 
+    content: "\e1bb"; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -1em; 
+    color: #0A6ED1;
+}
+
+/* Design of Detail-Body */
+.details {
+    background-color: #E0E3E4;
+    width: 500%;
+}
+
+.detail-content {
+    background-color: #E0E3E4;
+    width: 500%;
+}
+
+.detail-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.75rem;
+}
+
+#productName {
+    font-size: x-large;
+}
+
+#subInfo {
+    font-size: larger;
+    color:#8C8F91;
+}
+
+#sectionName {
+    font-size: larger;
+    color:#8C8F91;
+}
+
+#informationContainer, #purchase, #qrcode {
+    background-color: white;
+    overflow: visible;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+#informationContainer, #purchase {
+    border-bottom: 1px solid #ccc;
+}
+
+#qrcode {
+    margin-bottom: 1.75rem;
+}
+
+p {
+    margin-bottom: 0!important;
+}
+
+#productimg {
+    max-height: 100px;
+}
+
+.advertisement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.75rem;
+}
+
+#qr {
+    max-height: 200px;
+    margin-right: 2rem;
+}
+
+    </style>
 </html>

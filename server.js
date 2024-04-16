@@ -57,10 +57,10 @@ app.get("/off", (_req, res) => {
         res.send("ausgeschaltet");
 });
 
-
 app.get("/enginefwd", (_req, res) => {
         stepperDir = 1;
-        res.status(200).send("Motor dreht sich jetzt");
+        this.stepMotorForward();
+        res.status(200).send("Motor dreht sich jetzt").render("studiengaenge");;
 });
 
 app.get("/enginebwd", (_req, res) => {
